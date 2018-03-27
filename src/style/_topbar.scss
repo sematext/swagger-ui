@@ -92,4 +92,16 @@
             @include text_headline($topbar-download-url-button-font-color);
         }
     }
+
+    .sematext-links-container {
+        display:inline-flex;
+        width: 50%;
+        margin-left: 15em;
+    }
+
+    .sematext-links-container a {
+        font-size: medium;
+        font-weight: 200;
+        text-decoration: underline;
+    }
 }

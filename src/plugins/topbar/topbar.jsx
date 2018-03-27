@@ -125,21 +125,26 @@ export default class Topbar extends React.Component {
       control.push(<Button className="download-url-button" onClick={ this.downloadUrl }>Explore</Button>)
     }
 
+    // SEMATEXT CHANGES START
     return (
       <div className="topbar">
         <div className="wrapper">
           <div className="topbar-wrapper">
             <Link href="#">
-              <img height="30" width="30" src={ Logo } alt="Swagger UI"/>
-              <span>swagger</span>
+              <img height="30" width="30" src={ Logo } alt="Sematext Cloud API Explorer"/>
+              <span>Sematext Cloud API (v3)</span>
             </Link>
-            <form className="download-url-wrapper" onSubmit={formOnSubmit}>
-              {control.map((el, i) => cloneElement(el, { key: i }))}
-            </form>
+            <div className="sematext-links-container">
+              <a href="https://sematext.com/docs/logs/index-events-via-elasticsearch-api/">Logs API</a>
+              <a href="#">Metrics API</a>
+              <a href="https://sematext.com/docs/events/#adding-events">Events API</a>
+              <a href="https://sematext.com/docs/api/rest-api/">More Info</a>
+            </div>
           </div>
         </div>
       </div>
     )
+    // SEMATEXT CHANGES END
   }
 }
 
