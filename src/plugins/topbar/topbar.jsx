@@ -153,7 +153,7 @@ export default class Topbar extends React.Component {
                   <a href="https://sematext.com/docs/logs/search-through-the-elasticsearch-api/">Search Logs</a>
                 </div>
               </div>
-              <a href="#">Metrics API</a>
+              {/* <a href="#">Metrics API</a> */}
               <div className="sematext-dropdown">
                 <a className="sematext-dropbtn">Events API</a>
                 <div className="sematext-dropdown-content">
