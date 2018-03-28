@@ -99,9 +99,55 @@
         margin-left: 15em;
     }
 
-    .sematext-links-container a {
+    .sematext-links-container a, .region a {
         font-size: medium;
         font-weight: 200;
         text-decoration: underline;
     }
+
+    .sematext-links-container a {
+        padding-left: 12px;
+    }
+
+    .region {
+        display: flex;
+        a {
+            color: aliceblue;
+        }
+        span {
+            padding-top: 1px;
+            color: greenyellow;
+        }
+    }
+
+    .sematext-dropdown {
+        width: 10em;
+    }
+
+    .sematext-dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #1074BC;
+        min-width: 140px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .sematext-dropdown-content a {
+        color:aliceblue;
+        padding: 10px 12px;
+        text-decoration: none;
+        display: block;
+        font-size: medium;
+    }
+
+    .sematext-dropdown-content a:hover {background-color: #0E68A9}
+
+    .sematext-dropdown:hover .sematext-dropdown-content {
+        display: block;
+    }
+
+    // .sematext-dropdown:hover .sematext-dropbtn {
+    //     background-color: #0E68A9;
+    // }
 }

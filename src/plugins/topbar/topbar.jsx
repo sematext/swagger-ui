@@ -97,6 +97,8 @@ export default class Topbar extends React.Component {
     let isLoading = specSelectors.loadingStatus() === "loading"
     let isFailed = specSelectors.loadingStatus() === "failed"
 
+    let isUSRegion = window.location.hostname == "apps.sematext.com" 
+
     let inputStyle = {}
     if(isFailed) inputStyle.color = "red"
     if(isLoading) inputStyle.color = "#aaa"
@@ -125,6 +127,15 @@ export default class Topbar extends React.Component {
       control.push(<Button className="download-url-button" onClick={ this.downloadUrl }>Explore</Button>)
     }
 
+    let region = (<div className="region">
+      <span>US</span>|<a href="https://apps.eu.sematext.com/api-explorer/">EU</a>
+    </div>)
+    if (!isUSRegion) {
+      region = (<div className="region">
+      <a href="https://apps.sematext.com/api-explorer/">US</a>|<span>EU</span>
+    </div>)
+    }
+
     // SEMATEXT CHANGES START
     return (
       <div className="topbar">
@@ -135,10 +146,23 @@ export default class Topbar extends React.Component {
               <span>Sematext Cloud API (v3)</span>
             </Link>
             <div className="sematext-links-container">
-              <a href="https://sematext.com/docs/logs/index-events-via-elasticsearch-api/">Logs API</a>
+              <div className="sematext-dropdown">
+                <a className="sematext-dropbtn">Logs API</a>
+                <div className="sematext-dropdown-content">
+                  <a href="https://sematext.com/docs/logs/index-events-via-elasticsearch-api/">Send Logs</a>
+                  <a href="https://sematext.com/docs/logs/search-through-the-elasticsearch-api/">Search Logs</a>
+                </div>
+              </div>
               <a href="#">Metrics API</a>
-              <a href="https://sematext.com/docs/events/#adding-events">Events API</a>
+              <div className="sematext-dropdown">
+                <a className="sematext-dropbtn">Events API</a>
+                <div className="sematext-dropdown-content">
+                  <a href="https://sematext.com/docs/events/#adding-events">Send Events</a>
+                  <a href="https://sematext.com/docs/events/#searching-events">Search Events</a>
+                </div>
+              </div>
               <a href="https://sematext.com/docs/api/rest-api/">More Info</a>
+              {region}
             </div>
           </div>
         </div>
