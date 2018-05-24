@@ -37,7 +37,7 @@ export default class ApiKeyAuth extends React.Component {
     this.setState(newState)
     onChange(newState)
   }
-
+  
   render() {
     let { schema, getComponent, errSelectors, name } = this.props
     const Input = getComponent("Input")
@@ -52,8 +52,7 @@ export default class ApiKeyAuth extends React.Component {
     return (
       <div>
         <h4>
-          <code>{ name || schema.get("name") }</code>&nbsp;
-          (apiKey)
+          API Key
           <JumpToPath path={[ "securityDefinitions", name ]} />
         </h4>
         { value && <h6>Authorized</h6>}
@@ -70,7 +69,7 @@ export default class ApiKeyAuth extends React.Component {
           <label>Value:</label>
           {
             value ? <code> ****** </code>
-                  : <Col><Input type="text" onChange={ this.onChange }/></Col>
+                  : <Col><Input type="text" placeholder="apiKey <YOUR_API_KEY>" onChange={ this.onChange }/></Col>
           }
         </Row>
         {
